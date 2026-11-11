@@ -145,3 +145,19 @@ SELECT
   COUNT(*) AS sessions,
   COUNTIF(userId IS NOT NULL) AS sessions_with_user_id
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`;
+
+-- =====================================================================
+-- Step 6e: Purchase hits vs distinct orders vs purchasing sessions
+-- Purpose: check whether one purchase is recorded on several hits
+--          (earlier: 1,442 hits across 697 sessions in Jan 2017)
+-- Run date: 2026-10-28 | Period: 2017-01-01 to 2017-01-31
+-- Result: purchase_hits = 1442 | distinct_transaction_ids = 697 | purchase_sessions = 697
+-- =====================================================================
+SELECT
+  COUNT(*) AS purchase_hits,
+  COUNT(DISTINCT h.transaction.transactionId) AS distinct_transaction_ids,
+  COUNT(DISTINCT CONCAT(fullVisitorId, '-', CAST(visitId AS STRING))) AS purchase_sessions
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
+  UNNEST(hits) AS h
+WHERE _TABLE_SUFFIX BETWEEN '20170101' AND '20170131'
+  AND h.transaction.transactionId IS NOT NULL;
