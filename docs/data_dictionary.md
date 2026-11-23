@@ -28,16 +28,16 @@
 ## events: one row per ____ (grain)
 | Column | Type | Meaning | Source field | Caveat | Nulls | Example |
 |---|---|---|---|---|---|---|
-| `event_id` | str | | | | 0 | 5278722127498674654-1485950241-20170201- |
-| `session_key` | str | | | | 0 | 5278722127498674654-1485950241-20170201 |
-| `session_id` | str | | | | 0 | 5278722127498674654-1485950241 |
-| `full_visitor_id` | str | | | | 0 | 5278722127498674654 |
-| `event_ts` | datetime64[us, UTC] | | | | 0 | 2017-02-01 12:07:01.385000+00:00 |
-| `hit_number` | Int64 | | | | 0 | 77 |
+| `event_id` | str | | | | 0 | 0440373035810363378-1496597987-20170604- |
+| `session_key` | str | | | | 0 | 0440373035810363378-1496597987-20170604 |
+| `session_id` | str | | | | 0 | 0440373035810363378-1496597987 |
+| `full_visitor_id` | str | | | | 0 | 0440373035810363378 |
+| `event_ts` | datetime64[us, UTC] | | | | 0 | 2017-06-04 17:43:14.037000+00:00 |
+| `hit_number` | Int64 | | | | 0 | 14 |
 | `hit_type` | str | | | | 0 | EVENT |
 | `action_type` | str | | | | 0 | 1 |
 | `event_name` | str | | | | 0 | product_list_clicked |
-| `transaction_id` | str | | | | 1,034,759 | ORD201705122054 |
+| `transaction_id` | str | | | | 1,034,759 | ORD201611051348 |
 
 ## orders: one row per ____ (grain)
 | Column | Type | Meaning | Source field | Caveat | Nulls | Example |

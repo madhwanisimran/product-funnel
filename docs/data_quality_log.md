@@ -4,13 +4,15 @@
 
 - Checks run: \_**\_ | Issues found: \_\_** | Resolved: \_**\_ | Documented limitations: \_\_**
 
-## Exclusion rules per metric (fill in at the end)
+## Exclusion rules per metric
 
-| Metric          | Excludes |
-| --------------- | -------- |
-| Funnel          | \_\_\_\_ |
-| Retention       | \_\_\_\_ |
-| Revenue and AOV | \_\_\_\_ |
+| Metric               | Excludes                                                                                                                                     | Sensitivity check                                                                      |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Funnel               | "(Other)" channel and "(not set)" country in segment comparisons                                                                             | Without `is_extreme_session`; strict-sequence and stage-reached versions both reported |
+| Retention            | Users with `in_cohort_analysis = False` (not true new, inconsistent visit numbers, Aug 2017 cohort); cells without follow-up time left blank | Without `is_heavy_visitor`                                                             |
+| Revenue and AOV      | Orders with `is_valid_order = False` (37)                                                                                                    | Without `is_large_order_outlier`, without `is_heavy_buyer`; median beside the average  |
+| Repeat purchase rate | Invalid orders; buyers with no follow-up time (restricted version)                                                                           | Without heavy buyers                                                                   |
+| Order counts         | Nothing (all 11,552 count)                                                                                                                   |                                                                                        |
 
 ## Entries
 
